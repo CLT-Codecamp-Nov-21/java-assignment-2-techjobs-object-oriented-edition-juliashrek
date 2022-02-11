@@ -13,6 +13,21 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+    public Job(){
+        id = nextId;
+        nextId++;
+    }
+
+    public Job(String product_tester, Employer acme, Location desert, PositionType quality_control, CoreCompetency persistence) {
+        this();
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
+    }
+
+
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
@@ -24,23 +39,15 @@ public class Job {
     //  and id.
 
     @Override
-    public String toString() {
-        if (name.equals("")){
-            name = "Data not available";
-        }
-        if (employer.getValue().equals("") || employer.getValue() == null){
-            employer.setValue("Data not available");
-        }
-        if (location.getValue().equals("") || location.getValue() == null){
-            location.setValue("Data not available");
-        }
-        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
-            coreCompetency.setValue("Data not available");
-        }
-        if (positionType.getValue().equals("") || positionType.getValue() == null){
-            positionType.setValue("Data not available");
-        }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
+    }
 
+    @Override
+    public String toString() {
         return "\nId: " + id +
                 "\nName: " + name +
                 "\nEmployer: " + employer +
