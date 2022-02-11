@@ -21,6 +21,19 @@ public class PositionType {
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
     //  their id fields match.
 
+    @Override
+    public String toString() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object o) { //two objects are equal when their id fields match
+        if (this == o) return true;
+        if (!(o instanceof PositionType)) return false;
+        PositionType positiontype = (PositionType) o;
+        return getId() == positiontype.getId();
+    }
+
     // Getters and Setters:
 
     public int getId() {

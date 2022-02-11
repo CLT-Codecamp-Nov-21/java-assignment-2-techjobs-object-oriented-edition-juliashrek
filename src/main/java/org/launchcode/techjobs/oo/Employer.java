@@ -17,6 +17,7 @@ public class Employer {
         this();
         this.value = value;
     }
+      
 
     // Custom toString, equals, and hashCode methods:
 
