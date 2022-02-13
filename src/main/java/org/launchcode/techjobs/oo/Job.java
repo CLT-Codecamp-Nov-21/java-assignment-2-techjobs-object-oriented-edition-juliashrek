@@ -18,7 +18,7 @@ public class Job {
         nextId++;
     }
 
-    public Job(String product_tester, Employer acme, Location desert, PositionType quality_control, CoreCompetency persistence) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
@@ -48,6 +48,21 @@ public class Job {
 
     @Override
     public String toString() {
+        if (this.name.equals("")) {
+            name = "Data not available.";
+        }
+        if (this.employer.getValue().equals("")) {
+            employer.setValue("Data not available.");
+        }
+        if (this.location.getValue().equals("")) {
+            location.setValue("Data not available.");
+        }
+        if (this.positionType.getValue().equals("")) {
+            positionType.setValue("Data not available.");
+        }
+        if (this.coreCompetency.getValue().equals("")) {
+            coreCompetency.setValue("Data not available.");
+        }
         return "\nId: " + id +
                 "\nName: " + name +
                 "\nEmployer: " + employer +
@@ -59,7 +74,7 @@ public class Job {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hash(id);
     }
     public int getId() {
         return id;
