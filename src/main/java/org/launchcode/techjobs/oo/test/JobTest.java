@@ -56,12 +56,12 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job three = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String testString = "\nId: " + three.getId() +
+        String testString = "\nID: " + three.getId() +
                 "\nName: " + three.getName() +
                 "\nEmployer: " + three.getEmployer() +
                 "\nLocation: " + three.getLocation() +
-                "\nPositionType: " + three.getPositionType() +
-                "\nCoreCompetency: " + three.getCoreCompetency() +
+                "\nPosition Type: " + three.getPositionType() +
+                "\nCore Competency: " + three.getCoreCompetency() +
                 '\n';
         assertEquals(testString,three.toString());
     }
@@ -69,12 +69,12 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField() {
         Job three = new Job("", new Employer("ACME"), new Location(""), new PositionType("Quality control"), new CoreCompetency(""));
-        String testString = "\nId: " + three.getId() +
-                "\nName: Data not available." +
+        String testString = "\nID: " + three.getId() +
+                "\nName: Data not available" +
                 "\nEmployer: ACME" +
-                "\nLocation: Data not available." +
-                "\nPositionType: Quality control" +
-                "\nCoreCompetency: Data not available." +
+                "\nLocation: Data not available" +
+                "\nPosition Type: Quality control" +
+                "\nCore Competency: Data not available" +
                 '\n';
         assertEquals(testString,three.toString());
     }
